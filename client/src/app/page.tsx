@@ -1,5 +1,5 @@
 import Header from "@/components/header";
-import { ChevronDown } from "lucide-react";
+import Popup from "@/components/popup";
 
 
 export default function Home() {
@@ -68,13 +68,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <div>
-        <img src="" alt="" />
-        <p></p>
-        <div>
-          <ChevronDown />
-        </div>
-      </div>
+      <Popup/>
     </body>
   );
 }
