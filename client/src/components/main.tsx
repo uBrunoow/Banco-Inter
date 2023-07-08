@@ -4,28 +4,27 @@ import { useState, useEffect } from "react";
 export default function Main() {
 
   const [timeLeft, setTimeLeft] = useState<number>(0);
-const newYears = '20 April 2023';
+  const newYears = 'December 31, 2023';
 
-useEffect(() => {
-  const intervalId = setInterval(() => {
-    const newYearsDate = new Date(newYears);
-    const currentDate = new Date();
-    const Timing = newYearsDate.getTime() - currentDate.getTime();
-    const remainingTime = Math.floor(Timing * -1)
-    setTimeLeft(remainingTime);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const newYearsDate = new Date(newYears);
+      const currentDate = new Date();
+      const remainingTime = newYearsDate.getTime() - currentDate.getTime();
+      setTimeLeft(remainingTime);
 
-    // Verifica se o countdown chegou a zero
-    if (remainingTime <= 0) {
+      // Verifica se o countdown chegou a zero
+      if (remainingTime <= 0) {
+        clearInterval(intervalId);
+      }
+    }, 1000);
+
+    return () => {
       clearInterval(intervalId);
-    }
-  }, 1000);
+    };
+  }, []);
 
-  return () => {
-    clearInterval(intervalId);
-  };
-}, []);
-
-// Função para formatar o tempo restante em dias, horas, minutos e segundos
+  // Função para formatar o tempo restante em dias, horas, minutos e segundos
   const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
   const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
