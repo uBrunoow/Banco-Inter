@@ -19,6 +19,9 @@ module.exports = {
         inter: ['var(--font-inter)'],
         sora: ['var(--font-sora)'],
       },
+      boxShadow: {
+        '3xl': '0px 4px 6px 0px rgba(0, 0, 0, 0.1)',
+      }
     },
   },
   plugins: [],

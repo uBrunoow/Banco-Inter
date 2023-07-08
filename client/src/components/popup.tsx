@@ -36,7 +36,7 @@ export default function Popup() {
   return (
     <main>
       {/* Popup Fechado */}
-      <div className=" bg-white rounded-lg absolute right-[12.7%] bottom-[3%] w-[223px] transition duration-500 ease-in-out" id="BackgroundPopup">
+      <div className=" bg-white rounded-lg fixed right-[12.7%] bottom-[3%] w-[223px] transition duration-500 ease-in-out shadow-3xl" id="BackgroundPopup">
         <div className="flex items-center p-[10px] ">
           <Image src={popupImage} alt="" className=" w-[34px]"/>
           <div className=" flex cursor-pointer" onClick={OpenPopup}>
