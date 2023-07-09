@@ -27,7 +27,7 @@ export default function Popup() {
   };
 
   return (
-    <main>
+    <main className="z-1">
       {/* Popup Fechado */}
       <div className="bg-white rounded-lg fixed right-[12.7%] bottom-[3%] w-[223px] transition duration-500 ease-in-out shadow-3xl" id="BackgroundPopup">
         <div className="flex items-center p-[10px]">

@@ -1,0 +1,22 @@
+.checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid #cbd5e0;
+  border-radius: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.checked {
+  background: linear-gradient(to bottom,#ff8700 , #b45700) ;
+  border-color: #b45700;
+}
+
+.check-icon {
+  color: #fff;
+  font-size: 0.875rem;
+  z-index: 2;
+} 

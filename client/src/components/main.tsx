@@ -59,12 +59,12 @@ export default function Main() {
       <section className="h-full flex items-center justify-center">
         <div className="pb-12 px-3 w-[1416px]">
           <div className=" flex justify-between items-center">
-            <div className="w-[696px] h-[475.500px] px-3 relative"> 
+            <div className="w-[696px] h-[475.500px] px-3"> 
               <div>
-                <Image src={InterCashback} alt="" className=" absolute top-0 left-0 w-[456px] h-[472px] object-cover object-center "/>
+                <Image src={InterCashback} alt="" className=" w-[456px] h-[472px] object-cover object-center "/>
               </div>
             </div>
-            <div className=" mt-6 px-3 w-[590px] relative">
+            <div className=" mt-6 px-3 w-[590px] ">
               <p className=" font-sora leading-[30px] font-semibold text-[24px] text-[#6a6c72] mb-4">Inter Shop</p>
               <h2 className="font-sora leading-[50px] font-semibold text-[40px] text-[#161616] mb-2">No Inter todo mundo ganha cashback</h2>
               <p className=" my-4 leading-[22px] text-[18px] text-[#161616] text-justify font-sora">Tudo o que você procura em um só lugar. Aqui você ganha o cashback,<span className=" font-bold text-[#ff7a00] leading-[22px] text-[18px]"> direto na sua conta, seja ela Inter ou não. </span>É fácil, rápido, e você sai ganhando sempre!</p>
@@ -84,7 +84,7 @@ export default function Main() {
                 <Image src={IconMoney} alt="" />
                 <span className=" ml-2 leading-[22px] text-[18px] text-[#161616] font-sora">Ofertas cumulativas com cashback</span>
               </div>
-              <a href="" className=" flex items-center justify-center mt-12 px-5 pt-[6px] pb-[7px] bg-[#FF7A00] text-white opacity-[0.9] text-[14px] leading-[17px] font-bold h-[46px] w-full rounded-[0.4rem] hover:bg-[#ff8700]">Ganhar Cashback</a>
+              <a href="" className=" flex items-center justify-center mt-12 px-5 pt-[6px] pb-[7px] bg-[#FF7A00] text-white text-[14px] leading-[17px] font-bold h-[46px] w-full rounded-[0.4rem] hover:bg-[#ff8700]">Ganhar Cashback</a>
             </div>
           </div>
           <div className="mt-12">
