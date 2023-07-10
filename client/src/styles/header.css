@@ -19,4 +19,8 @@
   color: #fff;
   font-size: 0.875rem;
   z-index: 2;
-} 
+}
+
+.calcHeight {
+  min-height: calc(100vh - 82px);
+}

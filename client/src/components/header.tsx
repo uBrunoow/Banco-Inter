@@ -15,7 +15,7 @@ import seguroInter from '@/assets/seguroInter.svg'
 import acessivelInter from '@/assets/accesivelInter.svg'
 
 
-import { use, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 import '../styles/header.css'
@@ -40,11 +40,22 @@ export default function Header() {
   const [ isLinksOpen , setIsLinksOpen ] = useState(false) 
 
   const handleLinkAcess = () => {
+    const InterArrow = document.getElementById('InterArrow') as HTMLImageElement
+    const InterLink = document.getElementById('InterLink') as HTMLLinkElement
+
     setIsLinksOpen(!isLinksOpen)
+
+    // Transicao da inter arrow
+    InterArrow.style.transition = 'all .2s ease-in-out'
+    
     if ( isLinksOpen ) {
       document.body.style.overflowY = 'scroll'
+      InterArrow.style.transform = 'rotate(0deg)'
+      InterLink.style.color = 'rgb(22, 22, 22)'
     } else {
       document.body.style.overflowY = 'hidden'
+      InterArrow.style.transform = 'rotate(-180deg)'
+      InterLink.style.color = '#ff7a00'
     }
   }
 
@@ -81,23 +92,23 @@ export default function Header() {
           <div className=" flex">
             <div className=" flex">
               <div className=" flex" onClick={handleLinkAcess}>
-                <Link href={"/"} className=" text-[14px]  font-[rgb(22, 22, 22)] font-semibold font-inter">O Inter</Link>
-                <ChevronDown className=" text-[#B6B7BB]"/>
+                <Link href={"/"} className=" text-[14px] font-[rgb(22, 22, 22)] font-semibold font-inter" id="InterLink">O Inter</Link>
+                <ChevronDown className=" text-[#B6B7BB] ml-[5px]" id="InterArrow"/>
               </div>
 
               <div className=" flex py-[5] px-1 ml-[14px]">
-                <Link href={"/"} className=" text-[14px]  font-[rgb(22, 22, 22)] font-semibold font-inter">Pra você</Link>
-                <ChevronDown className=" text-[#B6B7BB] ml-[5px]"/>
+                <Link href={"/"} className=" text-[14px] font-[rgb(22, 22, 22)] font-semibold font-inter ">Pra você</Link>
+                <ChevronDown className=" text-[#B6B7BB] ml-[5px]" />
               </div>
 
               <div className=" flex py-[5] px-1 ml-[14px]">
-                <Link href={"/"} className=" text-[14px]  font-[rgb(22, 22, 22)] font-semibold font-inter">Empresas</Link>
-                <ChevronDown className=" text-[#B6B7BB]"/>
+                <Link href={"/"} className=" text-[14px] font-[rgb(22, 22, 22)] font-semibold font-inter ">Empresas</Link>
+                <ChevronDown className=" text-[#B6B7BB] ml-[5px]" />
               </div>
 
               <div className=" flex py-[5] px-1 ml-[14px]">
-                <Link href={"/"} className=" text-[14px]  font-[rgb(22, 22, 22)] font-semibold font-inter">Conteúdos</Link>
-                <ChevronDown className=" text-[#B6B7BB]"/>
+                <Link href={"/"} className=" text-[14px] font-[rgb(22, 22, 22)] font-semibold font-inter ">Conteúdos</Link>
+                <ChevronDown className=" text-[#B6B7BB] ml-[5px]" />
               </div>
 
               <div className=" flex py-[5] px-1 ml-[14px]">
@@ -112,7 +123,7 @@ export default function Header() {
           </form>
           <div className=" flex items-center gap-[16px]">
             <button className=" bg-[#FF7A00] text-white px-4 pt-[14px] pb-[15px] border-none rounded-lg h-12 font-bold text-[14px] leading-[14px] w-[136px]" onClick={handleLoginClick}>Abra sua conta</button>
-            <button className=" border-[#FF7A00] border-x-[1px] border-y-[1px] px-4 pt-[14px] pb-[15px] rounded-lg h-12 text-[14px] leading-[14px] w-[89px] font-bold text-[#FF7A00]" onClick={handleAcessClick}>Acessar</button>
+            <button className=" border-[#FF7A00] border-x-[1px] border-y-[1px] px-4 pt-[14px] pb-[15px] rounded-lg h-12 text-[14px] leading-[14px] w-[89px] font-bold text-[#ff7b00]" onClick={handleAcessClick}>Acessar</button>
           </div>
           <div className=" flex justify-between items-center border-x-[1px] border-[rgb(222, 223, 228)] border-y-[1px] rounded-xl w-20 h-6 p-1">
             <a href="" className=" px-2 bg-[#dedfe4] rounded-[100px] h-4 w-8"> <Image src={ptBr} alt=""/></a>
@@ -282,8 +293,6 @@ export default function Header() {
                 </div>
               </div>
             </div>
-
-
           </motion.div>
           <motion.div
             className="fixed top-0 left-0 w-full h-full opacity-[0.5] z-2 bg-black"
@@ -298,13 +307,169 @@ export default function Header() {
 
       {isLinksOpen && (
         <motion.div
-          onClick={handleLinkAcess}
-          className="fixed top-[114px] left-0 w-full h-full z-10 bg-white py-4"
+          className="fixed top-[114px] left-0 w-full calcHeight z-10 bg-white py-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.2 }}
         >
-          
+          <div className="flex items-center justify-center">
+            <div className="w-[1428px] h-[500px]">
+              <div className=" mb-4">
+                <div className=" flex items-center justify-between">
+                  <p className=" font-sora font-semibold text-[20px]  leading-[25px] text-[#161616]">O Inter</p>
+                  <X className=" cursor-pointer h-7 w-7 text-[#B6B7BB]" onClick={handleLinkAcess}/>
+                </div>
+              </div>
+              <div className=" flex-wrap flex justify-between items-center">
+
+                {/* 1° Item do link */}
+                <div className="mt-6 pr-3">
+                  <div className="bg-transparent rounded-[8px] h-[130px] w-[333px] border-y-[1px] border-x-[1px] border-[#dedfe4]">
+                    <div className=" flex px-[15px] py-4 flex-col">
+                      <p className=" mb-6 font-sora font-semibold">Governança Corporativa</p>
+                      <div>
+                        <a href="" className=" font-inter text-[#FF7A00] font-semibold text-[14px] leading-[17px]">Saiba mais</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2° Item do link */}
+                <div className="mt-6 pr-3">
+                  <div className="bg-transparent rounded-[8px] h-[130px] w-[333px] border-y-[1px] border-x-[1px] border-[#dedfe4]">
+                    <div className=" flex px-[15px] py-4 flex-col">
+                      <p className=" mb-6 font-sora font-semibold">Sustentabilidade</p>
+                      <div>
+                        <a href="" className=" font-inter text-[#FF7A00] font-semibold text-[14px] leading-[17px]">Saiba mais</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3° Item do link */}
+                <div className="mt-6 pr-3">
+                  <div className="bg-transparent rounded-[8px] h-[130px] w-[333px] border-y-[1px] border-x-[1px] border-[#dedfe4]">
+                    <div className=" flex px-[15px] py-4 flex-col">
+                      <p className=" mb-6 font-sora font-semibold">Ética e Compliance</p>
+                      <div>
+                        <a href="" className=" font-inter text-[#FF7A00] font-semibold text-[14px] leading-[17px]">Conheça as ações</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4° Item do link */}
+                <div className="mt-6 pr-3">
+                  <div className="bg-transparent rounded-[8px] h-[130px] w-[333px] border-y-[1px] border-x-[1px] border-[#dedfe4]">
+                    <div className=" flex px-[15px] py-4 flex-col">
+                      <p className=" mb-6 font-sora font-semibold">Conheça o Inter</p>
+                      <div>
+                        <a href="" className=" font-inter text-[#FF7A00] font-semibold text-[14px] leading-[17px]">Saiba mais</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 5° Item do link */}
+                <div className="mt-6 pr-3">
+                  <div className="bg-transparent rounded-[8px] h-[130px] w-[333px] border-y-[1px] border-x-[1px] border-[#dedfe4]">
+                    <div className=" flex px-[15px] py-4 flex-col">
+                      <p className=" mb-6 font-sora font-semibold">Pix</p>
+                      <div>
+                        <a href="" className=" font-inter text-[#FF7A00] font-semibold text-[14px] leading-[17px]">Conheça o Pix</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 6° Item do link */}
+                <div className="mt-6 pr-3">
+                  <div className="bg-transparent rounded-[8px] h-[130px] w-[333px] border-y-[1px] border-x-[1px] border-[#dedfe4]">
+                    <div className=" flex px-[15px] py-4 flex-col">
+                      <p className=" mb-6 font-sora font-semibold">Canais de atendimento</p>
+                      <div>
+                        <a href="" className="block font-inter text-[#FF7A00] font-semibold text-[14px] leading-snug w-[306px] h-[34px]">Conheça nossos canais oficiais de atendimento</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 7° Item do link */}
+                <div className="mt-6 pr-3">
+                  <div className="bg-transparent rounded-[8px] h-[130px] w-[333px] border-y-[1px] border-x-[1px] border-[#dedfe4]">
+                    <div className=" flex px-[15px] py-4 flex-col">
+                      <p className=" mb-6 font-sora font-semibold">Open Financer</p>
+                      <div>
+                        <a href="" className=" font-inter text-[#FF7A00] font-semibold text-[14px] leading-[17px]">Saiba mais</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 8° Item do link */}
+                <div className="mt-6 pr-3">
+                  <div className="bg-transparent rounded-[8px] h-[130px] w-[333px] border-y-[1px] border-x-[1px] border-[#dedfe4]">
+                    <div className=" flex px-[15px] py-4 flex-col">
+                      <p className=" mb-6 font-sora font-semibold">Portabilidade de salário</p>
+                      <div>
+                        <a href="" className=" font-inter text-[#FF7A00] font-semibold text-[14px] leading-[17px]">Saiba mais</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 9° Item do link */}
+                <div className="mt-6 pr-3">
+                  <div className="bg-transparent rounded-[8px] h-[130px] w-[333px] border-y-[1px] border-x-[1px] border-[#dedfe4]">
+                    <div className=" flex px-[15px] py-4 flex-col">
+                      <p className=" mb-6 font-sora font-semibold">Privacidade de Dados</p>
+                      <div>
+                        <a href="" className=" font-inter text-[#FF7A00] font-semibold text-[14px] leading-[17px]">Saiba mais</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 10° Item do link */}
+                <div className="mt-6 pr-3">
+                  <div className="bg-transparent rounded-[8px] h-[130px] w-[333px] border-y-[1px] border-x-[1px] border-[#dedfe4]">
+                    <div className=" flex px-[15px] py-4 flex-col">
+                      <p className=" mb-6 font-sora font-semibold">Segurança</p>
+                      <div>
+                        <a href="" className=" font-inter text-[#FF7A00] font-semibold text-[14px] leading-[17px]">Saiba mais</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 11° Item do link */}
+                <div className="mt-6 pr-3">
+                  <div className="bg-transparent rounded-[8px] h-[130px] w-[333px] border-y-[1px] border-x-[1px] border-[#dedfe4]">
+                    <div className=" flex px-[15px] py-4 flex-col">
+                      <p className=" mb-6 font-sora font-semibold">Carreiras</p>
+                      <div>
+                        <a href="" className=" font-inter text-[#FF7A00] font-semibold text-[14px] leading-[17px]">Saiba mais</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 12° Item do link (transparente) */}
+                <div className="mt-6 pr-3 invisible">
+                  <div className="bg-transparent rounded-[8px] h-[134px] w-[333px] border-y-[1px] border-x-[1px] border-[#dedfe4]">
+                    <div className=" flex px-[15px] py-4 flex-col">
+                      <p className=" mb-6 font-sora font-semibold">Carreiras</p>
+                      <div>
+                        <a href="" className=" font-inter text-[#FF7A00] font-semibold text-[14px] leading-[17px]">Saiba mais</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
         </motion.div>
       )}
 
