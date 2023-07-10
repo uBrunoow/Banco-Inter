@@ -136,7 +136,7 @@ export default function Header() {
       {isOpen && (
         <>
           <motion.div          
-            className="fixed right-0 top-0 max-w-[596px] w-full min-h-[100vh] px-[100px] py-10 bg-white overflow-auto z-[10] flex items-center justify-center"
+            className="fixed right-0 top-0 max-w-[596px] w-full min-h-[100vh] px-[100px] py-10 bg-white overflow-auto z-[1000] flex items-center justify-center"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             transition={{ duration: 0.25 }}
@@ -220,7 +220,7 @@ export default function Header() {
             </div>
           </motion.div>
           <motion.div
-            className="fixed top-0 left-0 w-full h-full opacity-[0.5] z-2 bg-black"
+            className="fixed top-0 left-0 w-full h-full opacity-[0.5] z-[999] bg-black"
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.5 }}
             transition={{ duration: 0.3 }}
@@ -233,7 +233,7 @@ export default function Header() {
       {isAcessOpen && (
         <>
           <motion.div          
-            className="fixed right-0 top-0 max-w-[596px] w-full min-h-[100vh] px-[64px] py-10 bg-white overflow-auto z-[10] flex items-center justify-center"
+            className="fixed right-0 top-0 max-w-[596px] w-full min-h-[100vh] px-[64px] py-10 bg-white overflow-auto z-[1000] flex items-center justify-center"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             transition={{ duration: 0.25 }}
@@ -295,7 +295,7 @@ export default function Header() {
             </div>
           </motion.div>
           <motion.div
-            className="fixed top-0 left-0 w-full h-full opacity-[0.5] z-2 bg-black"
+            className="fixed top-0 left-0 w-full h-full opacity-[0.5] z-[999] bg-black"
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.5 }}
             transition={{ duration: 0.3 }}
