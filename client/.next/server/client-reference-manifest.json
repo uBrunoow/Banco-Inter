@@ -131,14 +131,6 @@
       ],
       "async": false
     },
-    "C:\\Users\\bruno\\OneDrive\\Documentos\\GitHub\\BancoInter\\client\\src\\app\\page.tsx": {
-      "id": "(app-client)/./src/app/page.tsx",
-      "name": "*",
-      "chunks": [
-        "app/page:static/chunks/app/page.js"
-      ],
-      "async": false
-    },
     "C:\\Users\\bruno\\OneDrive\\Documentos\\GitHub\\BancoInter\\client\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"],\"variable\":\"--font-inter\",\"display\":\"swap\"}],\"variableName\":\"inter\"}": {
       "id": "(app-client)/./node_modules/next/font/google/target.css?{\"path\":\"src\\\\app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"],\"variable\":\"--font-inter\",\"display\":\"swap\"}],\"variableName\":\"inter\"}",
       "name": "*",
@@ -162,14 +154,22 @@
         "app/layout:static/chunks/app/layout.js"
       ],
       "async": false
+    },
+    "C:\\Users\\bruno\\OneDrive\\Documentos\\GitHub\\BancoInter\\client\\src\\app\\page.tsx": {
+      "id": "(app-client)/./src/app/page.tsx",
+      "name": "*",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
     }
   },
   "entryCSSFiles": {
-    "C:\\Users\\bruno\\OneDrive\\Documentos\\GitHub\\BancoInter\\client\\src\\app\\page": [
-      "static/css/app/page.css"
-    ],
     "C:\\Users\\bruno\\OneDrive\\Documentos\\GitHub\\BancoInter\\client\\src\\app\\layout": [
       "static/css/app/layout.css"
+    ],
+    "C:\\Users\\bruno\\OneDrive\\Documentos\\GitHub\\BancoInter\\client\\src\\app\\page": [
+      "static/css/app/page.css"
     ]
   }
 }
