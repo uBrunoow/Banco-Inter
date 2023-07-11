@@ -1,9 +1,9 @@
 'use client'
 
-import Header from "@/components/header";
-import Popup from "@/components/popup";
-import InterDay from "@/components/interday"
-import Main from "@/components/main";
+import Header from '@/components/header'
+import Popup from '@/components/popup'
+import InterDay from '@/components/interday'
+import Main from '@/components/main'
 
 export default function Home() {
   return (
@@ -13,5 +13,5 @@ export default function Home() {
       <Main />
       <Popup />
     </body>
-  );
+  )
 }

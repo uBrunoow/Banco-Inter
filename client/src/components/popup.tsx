@@ -1,43 +1,58 @@
 'use client'
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
-import { ChevronUp, ChevronRight, Search } from "lucide-react";
-import popupImage from '../assets/popup-image.png';
-import Image from "next/image";
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
+import { ChevronUp, ChevronRight, Search } from 'lucide-react'
+import popupImage from '../assets/popup-image.png'
+import Image from 'next/image'
 
 export default function Popup() {
-  const [isOpen, setIsOpen] = useState(false);
-  
-  const handleClick = async () => {
-    const textoAjuda = document.getElementById('TextoAjuda') as HTMLParagraphElement;
-    const BackgroundPopup = document.getElementById('BackgroundPopup') as HTMLDivElement;
+  const [isOpen, setIsOpen] = useState(false)
 
-    setIsOpen(!isOpen);
+  const handleClick = async () => {
+    const textoAjuda = document.getElementById(
+      'TextoAjuda',
+    ) as HTMLParagraphElement
+    const BackgroundPopup = document.getElementById(
+      'BackgroundPopup',
+    ) as HTMLDivElement
+
+    setIsOpen(!isOpen)
 
     if (textoAjuda && BackgroundPopup) {
       if (textoAjuda.innerHTML === 'Central de Ajuda') {
-        textoAjuda.innerHTML = 'Olá, posso ajudar?';
-        BackgroundPopup.style.background = '#F5F6FA';
+        textoAjuda.innerHTML = 'Olá, posso ajudar?'
+        BackgroundPopup.style.background = '#F5F6FA'
       } else {
-        textoAjuda.innerHTML = 'Central de Ajuda';
-        BackgroundPopup.style.background = '#fff';
+        textoAjuda.innerHTML = 'Central de Ajuda'
+        BackgroundPopup.style.background = '#fff'
       }
     }
-  };
+  }
 
   return (
     <main className="z-1">
       {/* Popup Fechado */}
-      <div className="bg-white rounded-lg fixed right-[12.7%] bottom-[3%] w-[223px] transition duration-500 ease-in-out shadow-3xl" id="BackgroundPopup">
+      <div
+        className="shadow-3xl fixed bottom-[3%] right-[12.7%] w-[223px] rounded-lg bg-white transition duration-500 ease-in-out"
+        id="BackgroundPopup"
+      >
         <div className="flex items-center p-[10px]">
           <Image src={popupImage} alt="" className="w-[34px]" />
           <div className="flex cursor-pointer" onClick={handleClick}>
-            <p className="mx-2 font-bold leading-[17px] text-[14px] text-[#525252] font-inter" id="TextoAjuda">
+            <p
+              className="mx-2 font-inter text-[14px] font-bold leading-[17px] text-[#525252]"
+              id="TextoAjuda"
+            >
               Central de Ajuda
             </p>
             <div>
-              <ChevronUp className={`h-[1em] w-[1em] text-[#FF7A00] ${isOpen ? "rotate-180" : ""}`} id="Flecha" />
+              <ChevronUp
+                className={`h-[1em] w-[1em] text-[#FF7A00] ${
+                  isOpen ? 'rotate-180' : ''
+                }`}
+                id="Flecha"
+              />
             </div>
           </div>
         </div>
@@ -46,56 +61,63 @@ export default function Popup() {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              className=" rounded-b-lg w-full bg-[#f5f6fa] p-[10px] overflow-hidden"
+              className=" w-full overflow-hidden rounded-b-lg bg-[#f5f6fa] p-[10px]"
               id="PopupAberto"
               initial={{ height: 0 }}
               animate={{ height: '301px' }}
               exit={{ height: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <form action="" className="w-full relative flex items-center mb-2">
+              <form
+                action=""
+                className="relative mb-2 flex w-full items-center"
+              >
                 <input
                   type="text"
                   name=""
                   id=""
                   placeholder="Pesquisar"
-                  className="w-full border-none outline-none h-8 pl-2 pr-12 text-[15px] rounded-lg font-bold placeholder:text-[12px] "
+                  className="h-8 w-full rounded-lg border-none pl-2 pr-12 text-[15px] font-bold outline-none placeholder:text-[12px] "
                 />
-                <Search className="rounded-full p-0 right-5 h-5 w-5 bg-transparent absolute" />
+                <Search className="absolute right-5 h-5 w-5 rounded-full bg-transparent p-0" />
               </form>
               <div className="mb-2">
                 <a href="">
-                  <div className="w-full bg-white mb-2 py-4 px-3 relative">
-                    <p className="text-[12.5px] font-normal leading-[15px] mb-4 font-inter text[#6a6c72]">
+                  <div className="relative mb-2 w-full bg-white px-3 py-4">
+                    <p className="text[#6a6c72] mb-4 font-inter text-[12.5px] font-normal leading-[15px]">
                       Posso ter uma Conta Conjunta?
                     </p>
                     <div className="flex gap-1">
-                      <p className="text-[10px] mb-0 font-normal font-inter leading-[12px]">Escrito por </p>
-                      <strong className="text-[10px] mb-0 font-normal font-inter leading-[12px] text-[#FF7A00]">
+                      <p className="mb-0 font-inter text-[10px] font-normal leading-[12px]">
+                        Escrito por{' '}
+                      </p>
+                      <strong className="mb-0 font-inter text-[10px] font-normal leading-[12px] text-[#FF7A00]">
                         Babi.
                       </strong>
-                      <ChevronRight className="h-[17px] absolute right-2 text-[#FF7A00]" />
+                      <ChevronRight className="absolute right-2 h-[17px] text-[#FF7A00]" />
                     </div>
                   </div>
                 </a>
                 <a href="" className="mb-2">
-                  <div className="w-full bg-white  py-4 px-3 relative">
-                    <p className="text-[12.5px] font-normal leading-[15px] mb-4 font-inter text[#6a6c72]">
+                  <div className="relative w-full  bg-white px-3 py-4">
+                    <p className="text[#6a6c72] mb-4 font-inter text-[12.5px] font-normal leading-[15px]">
                       Como solicito abertura de Conta Digital?
                     </p>
                     <div className="flex gap-1">
-                      <p className="text-[10px] mb-0 font-normal font-inter leading-[12px]">Escrito por </p>
-                      <strong className="text-[10px] mb-0 font-normal font-inter leading-[12px] text-[#FF7A00]">
+                      <p className="mb-0 font-inter text-[10px] font-normal leading-[12px]">
+                        Escrito por{' '}
+                      </p>
+                      <strong className="mb-0 font-inter text-[10px] font-normal leading-[12px] text-[#FF7A00]">
                         Babi.
                       </strong>
-                      <ChevronRight className="h-[17px] absolute right-2 text-[#FF7A00]" />
+                      <ChevronRight className="absolute right-2 h-[17px] text-[#FF7A00]" />
                     </div>
                   </div>
                 </a>
                 <div className="mt-5">
                   <button
                     type="submit"
-                    className="bg-[#FF7A00] font-bold text-[10.5px] leading-[12px] h-8 w-full rounded-lg text-white"
+                    className="h-8 w-full rounded-lg bg-[#FF7A00] text-[10.5px] font-bold leading-[12px] text-white"
                   >
                     Ver todas as respostas
                   </button>
@@ -106,5 +128,5 @@ export default function Popup() {
         </AnimatePresence>
       </div>
     </main>
-  );
+  )
 }
