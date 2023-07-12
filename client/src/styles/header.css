@@ -22,6 +22,7 @@
 }
 
 .calcHeight {
+  overflow-y: scroll;
   position: fixed;
   left: 0;
   top: 114px;
@@ -42,6 +43,14 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: start;
+}
+
+.flexFuncionando2{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: start;
+  margin-bottom: 100px;
 }
 
 .marginTop {
@@ -65,4 +74,9 @@
 .backgroundHeight {
   height: 8px;
   background: #f5f6fa;
+}
+
+.bgTransparent {
+  height: 5px;
+  background: transparent;
 }

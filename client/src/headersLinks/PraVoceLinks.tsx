@@ -183,7 +183,7 @@ export default function PraVoceLinks() {
                 <div className=" backgroundHeight"></div>
               </div>
 
-              <div className="flexFuncionando">
+              <div className="flexFuncionando2">
                 <PraVoceContent3 title="Inter Cel" desc1="Saiba mais" />
                 <PraVoceContent3 title="Inter Shop" desc1="Saiba mais" />
                 <PraVoceContent3 title="Duo Gourmet" desc1="Saiba mais" />
@@ -192,6 +192,7 @@ export default function PraVoceLinks() {
                 <PraVoceContent3 title="Gift Card" desc1="Saiba mais" />
                 <PraVoceContent3 title="Recarga" desc1="Saiba mais" />
               </div>
+              <div className="bgTransparent"></div>
             </div>
           </div>
         </motion.div>
