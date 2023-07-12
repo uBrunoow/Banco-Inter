@@ -12,6 +12,7 @@ import ptBr from '@/assets/brasil.svg'
 import us from '@/assets/eua.svg'
 import fogueteInter from '@/assets/fogueteInter.svg'
 import seguroInter from '@/assets/seguroInter.svg'
+
 import acessivelInter from '@/assets/accesivelInter.svg'
 
 import { useState } from 'react'
