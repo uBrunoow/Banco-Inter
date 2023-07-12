@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { Check, ChevronDown, Search, X } from 'lucide-react'
+import { Check, Search, X } from 'lucide-react'
 
 import logo from '@/assets/logo.svg'
 import segundaLogo from '@/assets/segundaLogo.svg'
@@ -20,6 +20,8 @@ import { motion } from 'framer-motion'
 import '../styles/header.css'
 import InterLinks from '@/headersLinks/InterLinks'
 import PraVoceLinks from '@/headersLinks/PraVoceLinks'
+import EmpresasLinks from '@/headersLinks/EmpresasLink'
+import ConteudosLinks from '@/headersLinks/ConteudosLink'
 
 export default function Header() {
   // Abrir o Login
@@ -76,25 +78,11 @@ export default function Header() {
               {/* Links do Pra você */}
               <PraVoceLinks />
 
-              <div className=" ml-[14px] flex px-1 py-[5]">
-                <Link
-                  href={'/'}
-                  className=" font-[rgb(22, 22, 22)] font-inter text-[14px] font-semibold "
-                >
-                  Empresas
-                </Link>
-                <ChevronDown className=" ml-[5px] text-[#B6B7BB]" />
-              </div>
+              {/* Links do Empresas */}
+              <EmpresasLinks />
 
-              <div className=" ml-[14px] flex px-1 py-[5]">
-                <Link
-                  href={'/'}
-                  className=" font-[rgb(22, 22, 22)] font-inter text-[14px] font-semibold "
-                >
-                  Conteúdos
-                </Link>
-                <ChevronDown className=" ml-[5px] text-[#B6B7BB]" />
-              </div>
+              {/* Links do Conteudos */}
+              <ConteudosLinks />
 
               <div className=" ml-[14px] flex px-1 py-[5]">
                 <Link

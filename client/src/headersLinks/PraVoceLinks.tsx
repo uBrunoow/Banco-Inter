@@ -1,10 +1,9 @@
-'use client'
-
 import { motion } from 'framer-motion'
 import { ChevronDown, X } from 'lucide-react'
 import { useState } from 'react'
-import PraVoceContent1 from './Contents/PraVoceContent.1'
-import PraVoceContent2 from './Contents/PraVoceContent.2'
+import PraVoceContent1 from '@/headersLinks/Contents/PraVoceContent.1'
+import PraVoceContent2 from '@/headersLinks/Contents/PraVoceContent.2'
+import PraVoceContent3 from '@/headersLinks/Contents/PraVoceContent.3'
 
 export default function PraVoceLinks() {
   // Abrir os links do header
@@ -39,7 +38,7 @@ export default function PraVoceLinks() {
         onClick={handlePraVoceLinkAcess}
       >
         <div
-          className=" font-[rgb(22, 22, 22)] font-inter text-[14px] font-semibold "
+          className=" font-[rgb(22, 22, 22)] cursor-pointer font-inter text-[14px] font-semibold "
           id="PraVoceLink"
         >
           Pra você
@@ -49,16 +48,16 @@ export default function PraVoceLinks() {
 
       {isPraVoceLinksOpen && (
         <motion.div
-          className="calcHeight fixed left-0 top-[114px] z-10 w-full bg-white py-4"
+          className="calcHeight "
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.2 }}
         >
-          <div className="flex items-center justify-center">
-            <div className="h-[500px] w-[1428px]">
-              <div className=" px-3">
-                <div className=" mb-[40px] flex items-center justify-between">
-                  <p className=" font-sora text-[20px] font-semibold  leading-[25px] text-[#161616]">
+          <div className="flex items-center justify-center ">
+            <div className="alturaPreDefinida ">
+              <div className=" px-3 ">
+                <div className=" marginBottom">
+                  <p className=" cursor-pointer font-sora text-[20px] font-semibold leading-[25px] text-[#161616]">
                     Pra você
                   </p>
                   <X
@@ -70,7 +69,7 @@ export default function PraVoceLinks() {
                   Tudo em sua conta
                 </div>
               </div>
-              <div className=" flex flex-wrap items-center justify-start">
+              <div className=" flexFuncionando">
                 <PraVoceContent1
                   title="Conta Digital"
                   desc1="Conta Digital"
@@ -180,8 +179,18 @@ export default function PraVoceLinks() {
                 />
               </div>
 
-              <div className="mt-10 h-[90%] w-full px-3">
-                <div className=" h-2 bg-[#f5f6fa]"></div>
+              <div className="widthHeight">
+                <div className=" backgroundHeight"></div>
+              </div>
+
+              <div className="flexFuncionando">
+                <PraVoceContent3 title="Inter Cel" desc1="Saiba mais" />
+                <PraVoceContent3 title="Inter Shop" desc1="Saiba mais" />
+                <PraVoceContent3 title="Duo Gourmet" desc1="Saiba mais" />
+                <PraVoceContent3 title="Inter Arcade" desc1="Saiba mais" />
+                <PraVoceContent3 title="Viagens" desc1="Saiba mais" />
+                <PraVoceContent3 title="Gift Card" desc1="Saiba mais" />
+                <PraVoceContent3 title="Recarga" desc1="Saiba mais" />
               </div>
             </div>
           </div>

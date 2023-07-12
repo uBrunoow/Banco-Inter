@@ -22,5 +22,47 @@
 }
 
 .calcHeight {
+  position: fixed;
+  left: 0;
+  top: 114px;
+  z-index: 1000;
+  width: 100%;
+  background: #fff;
+  padding: 16px 0;
   min-height: calc(100vh - 82px);
+}
+
+.alturaPreDefinida {
+  height: 500px;
+  width: 1428px;
+}
+
+.flexFuncionando{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: start;
+}
+
+.marginTop {
+  margin-top: 8px;
+}
+
+.marginBottom {
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.widthHeight {
+  margin: 40px 0;
+  padding: 0 12px;
+  width: 100%;
+  height: 8px;
+}
+
+.backgroundHeight {
+  height: 8px;
+  background: #f5f6fa;
 }

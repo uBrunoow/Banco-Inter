@@ -1,15 +1,15 @@
-type HeaderLinksContentProps = {
+type HeaderConteudosContentProps = {
   title: string
   desc: string
 }
 
-export default function InterContent(props: HeaderLinksContentProps) {
+export default function ConteudosContent(props: HeaderConteudosContentProps) {
   const divStyleWidth = {
     width: '25%',
   }
 
   const divStyleHeight = {
-    height: '115px',
+    height: '95px',
   }
 
   return (
@@ -22,15 +22,13 @@ export default function InterContent(props: HeaderLinksContentProps) {
         >
           <div className=" flex flex-col px-4 py-4">
             <p className=" mb-6 font-sora text-[16px] font-semibold leading-[20px] text-[#161616] ">
-              {' '}
-              {props.title}{' '}
+              {props.title}
             </p>
             <div className=" flex h-full cursor-pointer flex-col justify-start">
               <a
                 href=""
-                className="block font-inter text-[14px] font-bold leading-[17px] text-[#FF7A00]"
+                className=" block font-inter text-[14px] font-bold leading-[17px] text-[#FF7A00]"
               >
-                {' '}
                 {props.desc}
               </a>
             </div>

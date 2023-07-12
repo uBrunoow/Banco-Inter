@@ -1,5 +1,4 @@
-'use client'
-import '@/styles/headersLinks.css'
+import '@/styles/header.css'
 
 type HeaderPraVoce2ContentProps = {
   title: string

@@ -1,9 +1,7 @@
-'use client'
-
 import { motion } from 'framer-motion'
 import { ChevronDown, X } from 'lucide-react'
 import { useState } from 'react'
-import InterContent from './Contents/InterContent'
+import InterContent from '@/headersLinks/Contents/InterContent'
 
 export default function InterLinks() {
   // Abrir os links do header
@@ -33,7 +31,7 @@ export default function InterLinks() {
     <>
       <div className=" flex" onClick={handleInterLinkAcess}>
         <div
-          className=" font-[rgb(22, 22, 22)] font-inter text-[14px] font-semibold"
+          className=" font-[rgb(22, 22, 22)] cursor-pointer font-inter text-[14px] font-semibold"
           id="InterLink"
         >
           O Inter
@@ -43,16 +41,16 @@ export default function InterLinks() {
 
       {isInterLinksOpen && (
         <motion.div
-          className="calcHeight fixed left-0 top-[114px] z-10 w-full bg-white py-4"
+          className="calcHeight"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.2 }}
         >
           <div className="flex items-center justify-center">
-            <div className="h-[500px] w-[1428px]">
+            <div className="alturaPreDefinida">
               <div className=" mb-4 px-3">
                 <div className=" flex items-center justify-between">
-                  <p className=" font-sora text-[20px] font-semibold  leading-[25px] text-[#161616]">
+                  <p className=" cursor-pointer font-sora text-[20px] font-semibold leading-[25px] text-[#161616]">
                     O Inter
                   </p>
                   <X
@@ -61,7 +59,7 @@ export default function InterLinks() {
                   />
                 </div>
               </div>
-              <div className=" flex flex-wrap items-center justify-start">
+              <div className=" flexFuncionando">
                 <InterContent title="Conheça o Inter" desc="Saiba mais" />
                 <InterContent
                   title="Governança Corporativa"
