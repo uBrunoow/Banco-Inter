@@ -1,6 +1,6 @@
 type HeaderConteudosContentProps = {
-  title: string
-  desc: string
+  title?: string
+  desc?: string
 }
 
 export default function ConteudosContent(props: HeaderConteudosContentProps) {

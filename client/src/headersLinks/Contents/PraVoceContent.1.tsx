@@ -1,13 +1,13 @@
 import '@/styles/header.css'
 
 type HeaderPraVoce1ContentProps = {
-  title: string
-  desc1: string
-  desc2: string
-  desc3: string
-  desc4: string
-  desc5: string
-  desc6: string
+  title?: string
+  desc1?: string
+  desc2?: string
+  desc3?: string
+  desc4?: string
+  desc5?: string
+  desc6?: string
 }
 
 export default function PraVoceContent1(props: HeaderPraVoce1ContentProps) {

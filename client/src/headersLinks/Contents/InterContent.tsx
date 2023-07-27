@@ -1,6 +1,6 @@
 type HeaderLinksContentProps = {
-  title: string
-  desc: string
+  title?: string
+  desc?: string
 }
 
 export default function InterContent(props: HeaderLinksContentProps) {

@@ -1,17 +1,16 @@
 'use client'
 
+import Footer from '@/components/footer'
 import Header from '@/components/header'
 import Popup from '@/components/popup'
-import InterDay from '@/components/interday'
-import Main from '@/components/main'
+import Provider from '@/context/Provider'
 
 export default function Home() {
   return (
-    <body>
+    <Provider>
       <Header />
-      <InterDay />
-      <Main />
       <Popup />
-    </body>
+      <Footer />
+    </Provider>
   )
 }

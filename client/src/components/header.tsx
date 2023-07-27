@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { Check, Search, X } from 'lucide-react'
+import { Check, ChevronDown, Search, X } from 'lucide-react'
 
 import logo from '@/assets/logo.svg'
 import segundaLogo from '@/assets/segundaLogo.svg'
@@ -19,25 +19,75 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 import '../styles/header.css'
-import InterLinks from '@/headersLinks/InterLinks'
-import PraVoceLinks from '@/headersLinks/PraVoceLinks'
-import EmpresasLinks from '@/headersLinks/EmpresasLink'
-import ConteudosLinks from '@/headersLinks/ConteudosLink'
+import { useAppContext } from '@/context/AppContext'
+import InterContent from '@/headersLinks/Contents/InterContent'
+import PraVoceContent1 from '@/headersLinks/Contents/PraVoceContent.1'
+import PraVoceContent2 from '@/headersLinks/Contents/PraVoceContent.2'
+import PraVoceContent3 from '@/headersLinks/Contents/PraVoceContent.3'
+import EmpresasContent from '@/headersLinks/Contents/EmpresasContent'
+import ConteudosContent from '@/headersLinks/Contents/ConteudosContent'
 
 export default function Header() {
-  // Abrir o Login
-  const [isOpen, setIsOpen] = useState(false)
+  // Open inter link
+  const { isInterLinksOpen, setIsInterLinksOpen } = useAppContext()
+  const handleInterLinkAcess = () => {
+    setIsInterLinksOpen(!isInterLinksOpen)
+    setIsPraVoceLinksOpen(false)
+    setIsEmpresasLinksOpen(false)
+    setIsConteudosLinksOpen(false)
+  }
 
+  // -------------------- //
+
+  // Open pra voce link
+  const { isPraVoceLinksOpen, setIsPraVoceLinksOpen } = useAppContext()
+  const handlePraVoceLinkAcess = () => {
+    setIsPraVoceLinksOpen(!isPraVoceLinksOpen)
+    setIsInterLinksOpen(false)
+    setIsEmpresasLinksOpen(false)
+    setIsConteudosLinksOpen(false)
+  }
+
+  // -------------------- //
+
+  // Open empresas link
+  const { isEmpresasLinksOpen, setIsEmpresasLinksOpen } = useAppContext()
+  const handleEmpresasLinkAcess = () => {
+    setIsEmpresasLinksOpen(!isEmpresasLinksOpen)
+    setIsInterLinksOpen(false)
+    setIsPraVoceLinksOpen(false)
+    setIsConteudosLinksOpen(false)
+  }
+
+  // -------------------- //
+
+  // Abrir os links do header
+  const { isConteudosLinksOpen, setIsConteudosLinksOpen } = useAppContext()
+
+  const handleConteudosLinkAcess = () => {
+    setIsConteudosLinksOpen(!isConteudosLinksOpen)
+    setIsInterLinksOpen(false)
+    setIsPraVoceLinksOpen(false)
+    setIsEmpresasLinksOpen(false)
+  }
+
+  // -------------------- //
+
+  // Abrir o Login
+  const { isOpen, setIsOpen } = useAppContext()
   const handleLoginClick = () => {
     setIsOpen(!isOpen)
   }
 
-  // Abrir o acessar
-  const [isAcessOpen, setIsAcessOpen] = useState(false)
+  // -------------------- //
 
+  // Abrir o acessar
+  const { isAcessOpen, setIsAcessOpen } = useAppContext()
   const handleAcessClick = () => {
     setIsAcessOpen(!isAcessOpen)
   }
+
+  // -------------------- //
 
   // Dar "Check" no checkbox
   const [isChecked, setIsChecked] = useState(false)
@@ -60,7 +110,7 @@ export default function Header() {
 
   return (
     <>
-      <header className=" ml-[231.500px] mr-[231.500px] flex justify-between pb-8 pl-3 pr-3 pt-8">
+      <header className="container flex justify-between pb-8 pl-3 pr-3 pt-8">
         <section className=" flex items-center gap-12">
           {/* Logos */}
           <div className=" flex flex-col items-center justify-center ">
@@ -74,16 +124,368 @@ export default function Header() {
           <div className=" flex">
             <div className=" flex">
               {/* Link do Inter */}
-              <InterLinks />
+              <div className=" flex" onClick={handleInterLinkAcess}>
+                <div
+                  className=" font-[rgb(22, 22, 22)] cursor-pointer font-inter text-[14px] font-semibold"
+                  id="InterLink"
+                >
+                  O Inter
+                </div>
+                <ChevronDown
+                  className=" ml-[5px] text-[#B6B7BB]"
+                  id="InterArrow"
+                />
+              </div>
+
+              {isInterLinksOpen && (
+                <motion.div
+                  className="calcHeight"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="flex items-center justify-center">
+                    <div className="alturaPreDefinida">
+                      <div className=" mb-4 px-3">
+                        <div className=" flex items-center justify-between">
+                          <p className=" cursor-pointer font-sora text-[20px] font-semibold leading-[25px] text-[#161616]">
+                            O Inter
+                          </p>
+                          <X
+                            className=" h-7 w-7 cursor-pointer text-[#B6B7BB]"
+                            onClick={handleInterLinkAcess}
+                          />
+                        </div>
+                      </div>
+                      <div className=" flexFuncionando">
+                        <InterContent
+                          title="Conheça o Inter"
+                          desc="Saiba mais"
+                        />
+                        <InterContent
+                          title="Governança Corporativa"
+                          desc="Saiba mais"
+                        />
+                        <InterContent
+                          title="Sustentabilidade"
+                          desc="Saiba mais"
+                        />
+                        <InterContent
+                          title="Ética e Compliance"
+                          desc="Conheça as ações"
+                        />
+                        <InterContent title="Pix" desc="Conheça o Pix" />
+                        <InterContent
+                          title="Canais de atendimento"
+                          desc="Conheça nossos canais oficiais de atendimento"
+                        />
+                        <InterContent title="Open Finance" desc="Saiba mais" />
+                        <InterContent title="Carreiras" desc="Saiba mais" />
+                        <InterContent
+                          title="Portabilidade de salário"
+                          desc="Saiba mais"
+                        />
+                        <InterContent
+                          title="Privacidade de Dados"
+                          desc="Saiba mais"
+                        />
+                        <InterContent title="Segurança" desc="Saiba mais" />
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
 
               {/* Links do Pra você */}
-              <PraVoceLinks />
+              <div
+                className=" ml-[14px] flex px-1 py-[5]"
+                onClick={handlePraVoceLinkAcess}
+              >
+                <div
+                  className=" font-[rgb(22, 22, 22)] cursor-pointer font-inter text-[14px] font-semibold "
+                  id="PraVoceLink"
+                >
+                  Pra você
+                </div>
+                <ChevronDown
+                  className=" ml-[5px] text-[#B6B7BB]"
+                  id="PraVoceArrow"
+                />
+              </div>
+
+              {isPraVoceLinksOpen && (
+                <motion.div
+                  className="calcHeight "
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="flex items-center justify-center ">
+                    <div className="alturaPreDefinida ">
+                      <div className=" px-3 ">
+                        <div className=" marginBottom">
+                          <p className=" cursor-pointer font-sora text-[20px] font-semibold leading-[25px] text-[#161616]">
+                            Pra você
+                          </p>
+                          <X
+                            className=" h-7 w-7 cursor-pointer text-[#B6B7BB]"
+                            onClick={handlePraVoceLinkAcess}
+                          />
+                        </div>
+                        <div className="font-sora text-[16px] font-semibold  leading-[25px] text-[#161616]">
+                          Tudo em sua conta
+                        </div>
+                      </div>
+                      <div className=" flexFuncionando">
+                        <PraVoceContent1
+                          title="Conta Digital"
+                          desc1="Conta Digital"
+                          desc2="Conta Kids"
+                          desc3="Inter You"
+                          desc4="Indique e Ganhe"
+                        />
+
+                        <PraVoceContent1
+                          title="Inter Investl"
+                          desc1="Investimentos"
+                          desc2="Inter DTVM"
+                        />
+
+                        <PraVoceContent1
+                          title="Cartões"
+                          desc1="Cartão de Crédito"
+                          desc2="Programa de Pontos"
+                          desc3="Cartão Platinum"
+                          desc4="Cartão Black"
+                          desc5="Cartão INSS"
+                          desc6="Carteiras Digitais"
+                        />
+
+                        <PraVoceContent2
+                          title="Empréstimos"
+                          desc1="Com Garantia de Imóvel"
+                          desc2="Consignado Público"
+                          desc3="Consignado INSS"
+                          desc4="Portabilidade de consignado"
+                          desc5="Antecipação de FGTS"
+                          desc6="Consignado Empresa Privada"
+                          desc7="Cheque Especial"
+                          desc8="Todas modalidades de crédito"
+                        />
+
+                        <PraVoceContent2
+                          title="Financiamento"
+                          desc1="Financiamento imobiliário"
+                          desc2="Portabilidade de Financiamento Imobiliário"
+                          desc3="Financiamento para Construção"
+                          desc4="Financiamento Imobiliário nos EUA"
+                        />
+
+                        <PraVoceContent1
+                          title="Seguros"
+                          desc1="Seguros"
+                          desc2="Seguro Pix"
+                          desc3="Plano Odontológico"
+                          desc4="Planos de saúde"
+                          desc5="Plano de saúde Pet"
+                          desc6="Doutor Inter"
+                        />
+
+                        <PraVoceContent1
+                          title="Global Account"
+                          desc1="Conheça"
+                        />
+
+                        <PraVoceContent1 title="Câmbio" desc1="Conheça" />
+
+                        <PraVoceContent2
+                          title="Consórcio"
+                          desc1="Consórcios Inter"
+                          desc2="Consórcio Auto e Moto"
+                          desc3="Imobiliário"
+                        />
+
+                        <PraVoceContent2
+                          title="Relacionamento"
+                          desc1="Inter One"
+                          desc2="Inter Black"
+                          desc3="Inter Wealth Management"
+                        />
+                      </div>
+
+                      <div className="widthHeight">
+                        <div className=" backgroundHeight"></div>
+                      </div>
+
+                      <div className="flexFuncionando2">
+                        <PraVoceContent3 title="Inter Cel" desc1="Saiba mais" />
+                        <PraVoceContent3
+                          title="Inter Shop"
+                          desc1="Saiba mais"
+                        />
+                        <PraVoceContent3
+                          title="Duo Gourmet"
+                          desc1="Saiba mais"
+                        />
+                        <PraVoceContent3
+                          title="Inter Arcade"
+                          desc1="Saiba mais"
+                        />
+                        <PraVoceContent3 title="Viagens" desc1="Saiba mais" />
+                        <PraVoceContent3 title="Gift Card" desc1="Saiba mais" />
+                        <PraVoceContent3 title="Recarga" desc1="Saiba mais" />
+                      </div>
+                      <div className="bgTransparent"></div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
 
               {/* Links do Empresas */}
-              <EmpresasLinks />
+              <div
+                className="  ml-[14px] flex px-1 py-[5]"
+                onClick={handleEmpresasLinkAcess}
+              >
+                <div
+                  className=" font-[rgb(22, 22, 22)] cursor-pointer font-inter text-[14px] font-semibold"
+                  id="EmpresasLink"
+                >
+                  Empresas
+                </div>
+                <ChevronDown
+                  className=" ml-[5px] text-[#B6B7BB]"
+                  id="EmpresasArrow"
+                />
+              </div>
+
+              {isEmpresasLinksOpen && (
+                <motion.div
+                  className="calcHeight"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="flex items-center justify-center">
+                    <div className="alturaPreDefinida">
+                      <div className=" mb-4 px-3">
+                        <div className=" marginBottom">
+                          <p className=" font-sora text-[20px] font-semibold  leading-[25px] text-[#161616]">
+                            Empresas
+                          </p>
+                          <X
+                            className=" h-7 w-7 cursor-pointer text-[#B6B7BB]"
+                            onClick={handleEmpresasLinkAcess}
+                          />
+                        </div>
+                        <div className="font-sora text-[16px] font-semibold  leading-[25px] text-[#161616]">
+                          Tudo o que a sua empresa precisa
+                        </div>
+                      </div>
+                      <div className=" flexFuncionando">
+                        <EmpresasContent
+                          title="Conta Digital"
+                          desc1="Pessoa Jurídica"
+                          desc2="Micro Empreendedor (MEI)"
+                          desc3="Conta condomínio"
+                        />
+
+                        <EmpresasContent
+                          title="Cartão de débito e crédito"
+                          desc1="Saiba mais"
+                        />
+
+                        <EmpresasContent
+                          title="Empréstimos"
+                          desc1="Antecipação de Recebíveis"
+                          desc2="Empréstimo Corporativo"
+                          desc3="Home Equity"
+                          desc4="Financiamento Imobiliário"
+                          desc5="Empréstimo Consignado Privado"
+                        />
+
+                        <EmpresasContent
+                          title="Investimentos"
+                          desc1="Saiba mais"
+                        />
+
+                        <EmpresasContent
+                          title="Global Account"
+                          desc1="Lista VIP"
+                          desc2="Câmbio"
+                        />
+
+                        <EmpresasContent
+                          title="Serviços"
+                          desc1="Folha de Pagamento"
+                          desc2="Maquininha de cartão"
+                        />
+
+                        <EmpresasContent
+                          title="Seguros"
+                          desc1="Ver todos os seguros"
+                        />
+
+                        <EmpresasContent
+                          title="Relacionamentos"
+                          desc1="Programa de pontos"
+                          desc2="Conta PJ Pro"
+                          desc3="Conta PJ Enterprise"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
 
               {/* Links do Conteudos */}
-              <ConteudosLinks />
+              <div
+                className="  ml-[14px] flex px-1 py-[5]"
+                onClick={handleConteudosLinkAcess}
+              >
+                <div
+                  className=" font-[rgb(22, 22, 22)] cursor-pointer font-inter text-[14px] font-semibold"
+                  id="ConteudosLink"
+                >
+                  Conteudos
+                </div>
+                <ChevronDown
+                  className=" ml-[5px] text-[#B6B7BB]"
+                  id="ConteudosArrow"
+                />
+              </div>
+
+              {isConteudosLinksOpen && (
+                <motion.div
+                  className="calcHeight"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="flex items-center justify-center">
+                    <div className="alturaPreDefinida">
+                      <div className=" mb-4 px-3">
+                        <div className=" flex items-center justify-between ">
+                          <p className=" font-sora text-[20px] font-semibold  leading-[25px] text-[#161616]">
+                            Conteudos
+                          </p>
+                          <X
+                            className=" h-7 w-7 cursor-pointer text-[#B6B7BB]"
+                            onClick={handleConteudosLinkAcess}
+                          />
+                        </div>
+                      </div>
+                      <div className=" flexFuncionando">
+                        <ConteudosContent title="Blog" desc="Saiba mais" />
+
+                        <ConteudosContent
+                          title="Inter Invest"
+                          desc="Saiba mais"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
 
               <div className=" ml-[14px] flex px-1 py-[5]">
                 <Link
